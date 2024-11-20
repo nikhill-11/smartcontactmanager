@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" th:replace="inside::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<section>
+			<div th:if="${session.message}" class="container text-center">
+		 <div  th:classappend="${'alert-'+session.message.type}" class="alert " role="alert">
+  <span th:text="${session.message.content}"></span>
+</div>	
+<th:block th:text="${@sessionhelper.removeMessageFromSession()}"></th:block>
+		</div>
+			
+			
+			<div class="card  style="margin-left:3; "mr-3">
+				
+				<div class="card-body text-center " th:if="${contact}">
+					
+					<div class="container text-center">
+			<img style="height: 200px; width: 200px; "class="my_profile_picture" th:src="@{'/img/'+${contact.image}}                  ">
+		</div>
+      <h3  > 
+		  <span th:text="${contact.name}"> </span>
+		  (<span th:text="${contact.secondname}" >
+			   </span>)</h3>
+			   
+			   
+			   
+			   
+			   <table class="table">
+  <thead>
+	   <tr>
+      <th scope="col">ID</th>
+      <th scope="col"  th:text="'SCM'+${contact.cid}">First</th>
+  
+    </tr>
+    <tr>
+      <th scope="row">Phone number</th>
+      <td   th:text="${contact.phone}">First</td>
+  
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Work</th>
+      <td  th:text="${contact.work}">Mark</td>
+    
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td class="mt-3" th:text="${contact.email}">Jacob</td>
+     
+    </tr>
+    <tr>
+      <th scope="row">descrption</th>
+      <td class="mt-3" th:text="${contact.descrption}">Larry</td>
+    
+    </tr>
+  </tbody>
+</table>
+           <a href="#"  th:onclick="|deleteContact(${contact.cid})|" class="btn btn-danger btn-sm">Delete</a>
+		      <form method="post" th:action="@{'/user/update-contact/'+${contact.cid}}" class="mt-2">
+									<button type="submit" class="btn btn-primary btn-sm">Update</button>
+								</form>
+				</div>
+			
+			</div>
+	</section>
+
+		
+</body>
+</html>

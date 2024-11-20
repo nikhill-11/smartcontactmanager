@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" th:replace="inside::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<section>
+		<div th:if="${session.message}" class="container text-center">
+		 <div  th:classappend="${'alert-'+session.message.type}" class="alert " role="alert">
+  <span th:text="${session.message.content}"></span>
+</div>	
+<th:block th:text="${@sessionhelper.removeMessageFromSession()}"></th:block>
+		</div>
+		 
+	<div class="card ml-3 mt-3">
+	
+		<div class="card-body ">
+				<h1 class="text-center mt-1">Add Contact</h1>
+			<div class="text-center">
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							<form method="post" th:action="@{/user/process}" th:object="${contact}" 
+							enctype="multipart/form-data" class="mt-2"
+							>
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<div class="input-group-text mt-1">
+											<i class="fa fa-plus "></i>
+										</div>
+									</div>
+									<input  required="required" type="text" id="fname" name="name" placeholder="  Enter your full name" class="form-control"/ >
+								</div>
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mt-1">
+											<i class="fas fa-user-alt  "></i>
+										</div>
+									</div>
+									<input required="required"  type="text" id="sname" name="secondname" placeholder="  Enter your nick name" class="form-control"/ >
+								</div>
+								
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mt-1">
+										<i class="fa-solid fa-briefcase"></i>
+										</div>
+									</div>
+									
+									<input required="required" type="text" id="work" name="work" placeholder="  Enter your work" class="form-control"/ >
+								</div>
+								
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mt-1">
+										<i class="fa-solid fa-envelope"></i>
+										</div>
+									</div>
+									<input required="required" type="email" id="email" name="email" placeholder="  Enter your email" class="form-control"/ >
+								</div>
+								
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mt-1">
+									<i class="fa-solid fa-phone"></i>
+										</div>
+									</div>
+									<input required="required" type="text" id="phone" name="phone" placeholder="  Enter your phone number" class="form-control"/ >
+								</div>
+								
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mt-1">
+									<i class="fa-solid fa-note-sticky"></i>
+										</div>
+									</div>
+									<textarea  required="required" name="descrption"  class="form-control" rows="10" placeholder=" Enter contact descrption"></textarea>
+								</div>
+									<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mt-1">
+									<i class="fa-solid fa-camera"></i>
+										</div>
+									</div>
+									<input type="file" name="Profileimage" </div>
+								
+								<div class="customfile">
+								
+									
+								</div>
+								<div class="container text-center">
+									<button class="bt btn-outline-primary">Save Contact</button>	
+									 								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		      </div>
+	</div>
+		<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+ <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+    <script>
+
+		$(document).ready(()=>{
+			$(".item").removeClass("activeone");
+			$("#add-contact").addClass("activeone");
+		});
+		</script>
+		
+	</section>
+	</section>
+
+		
+</body>
+</html>

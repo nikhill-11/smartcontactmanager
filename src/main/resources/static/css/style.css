@@ -1,0 +1,108 @@
+body{
+	background-color: aliceblue;
+}
+.primary{
+	background-color: skyblue;
+
+}
+.contact{
+	width: 100%;
+	height: 93vh;
+	background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url(../img/contact.jpg);
+	background-size: cover;
+	color: white;
+}
+.mycard{
+	
+	padding: 20px;
+	background: #ffffff;
+	
+}
+@media  only screen and (max-width:600px){
+	.sidebar{
+		display: none;
+	width: 18%;
+	height: 100vh;
+	background: whitesmoke;
+	position: fixed;
+	padding-top: 45px;
+	
+	
+}
+
+}
+.sidebar .cross{
+	position: absolute;
+	top: 0%;
+	right:35px;
+	font-size: 36px;
+	text-align: right;
+	cursor: pointer;
+}
+.sidebar{
+	width: 18%;
+	height: 100%;
+	background-color: whitesmoke;
+	position: fixed;
+	padding-top: 45px;
+	z-index: 99999999999999999;
+	
+	
+}
+.sidebar a{
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: black;
+}
+.sidebar a:hover{
+	background: #e2e2e2;
+}
+.content{
+	margin-left: 20%;	
+	margin-top: 70px;
+	
+	
+	
+}
+
+.search-container{
+	position: relative;
+}
+.search-result{
+	position: absolute;
+	background: white;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid gray;
+	display: none;
+	}
+	
+.activeone{
+	background: skyblue;
+	color: black;
+}	
+	#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link #forgot_password-link {
+  margin-top: 10px;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 450px;
+  border: 1px solid #9C9C9C;
+  background-color: white;
+}
+	
+#login .box	
+	{
+		padding-left: 20px;
+		 margin-top: 120px;
+  max-width: 600px;
+  height: 350px;
+  border: 1px solid #9C9C9C;
+  background-color: white;
+	}
